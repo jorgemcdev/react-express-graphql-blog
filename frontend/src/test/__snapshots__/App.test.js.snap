@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AUTOCOMPLETE: autocomplete cities Should Match the Snapshot 1`] = `
+Array [
+  <h1>
+    My App
+  </h1>,
+  <p>
+    Hello React
+  </p>,
+  <input>
+    Click
+  </input>,
+]
+`;

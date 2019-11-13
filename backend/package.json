@@ -1,0 +1,65 @@
+{
+  "name": "store-graphql",
+  "version": "1.0.0",
+  "description": "Graphql API",
+  "main": "index.js",
+  "keywords": [
+    "nodejs",
+    "express",
+    "graphql",
+    "mongodb"
+  ],
+  "author": "jorgemcdev",
+  "license": "ISC",
+  "engines": {
+    "node": ">=8",
+    "nvm": ">6"
+  },
+  "dependencies": {
+    "@hapi/joi": "^16.1.7",
+    "apollo-server-express": "^2.9.7",
+    "bcryptjs": "^2.4.3",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "cross-env": "^6.0.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "graphql-tag": "^2.10.1",
+    "helmet": "^3.21.2",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.7.5",
+    "morgan": "^1.9.1",
+    "path": "^0.12.7",
+    "saslprep": "^1.0.3"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/node": "^7.6.3",
+    "@babel/preset-env": "^7.6.3",
+    "eslint": "^6.5.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "husky": "^3.0.9",
+    "nodemon": "^1.19.4",
+    "prettier": "^1.18.2"
+  },
+  "scripts": {
+    "prebuild": "rimraf build",
+    "build": "cross-env NODE_ENV=production babel ./src --out-dir build --copy-files --ignore '**/*.test.js'",
+    "start": "cross-env NODE_ENV=production node build/index.js",
+    "dev": "babel-node src/index.js",
+    "watch": "nodemon",
+    "eslint": "eslint src/",
+    "prettier:check": "prettier --check \"app/**/*.{js}\"",
+    "prettier:write": "prettier --write \"app/**/*.{js}\""
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run prettier:write && npm run eslint",
+      "pre-push": "npm run test"
+    }
+  }
+}
